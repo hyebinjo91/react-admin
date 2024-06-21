@@ -7,6 +7,7 @@ import {
   EditGuesser,
   memoryStore,
 } from "react-admin";
+import { Route } from "react-router-dom";
 import { dataProvider } from "@/data/dataProvider";
 import authProvider from "@/data/authProvider";
 import { DashBoard } from "./Dashboard";
@@ -27,11 +28,12 @@ const CustomApp = () => {
       <Resource
         name="users"
         list={UserList}
-        edit={UserEdit}
         show={UserShow}
         create={UserCreate}
-        recordRepresentation="name"
-      />
+        recordRepresentation={(record) => `${record.id} ${record.username}`}
+      >
+        <Route path=":usersId/books" element={<div>커스텀route</div>} />
+      </Resource>
       <Resource
         name="posts"
         list={ListGuesser}
