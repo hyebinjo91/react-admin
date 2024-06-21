@@ -1,5 +1,3 @@
-// "use client";
-
 import {
   Admin,
   Resource,
@@ -30,6 +28,7 @@ const CustomApp = () => {
         list={UserList}
         show={UserShow}
         create={UserCreate}
+        edit={UserEdit}
         recordRepresentation={(record) => `${record.id} ${record.username}`}
       >
         <Route path=":usersId/books" element={<div>커스텀route</div>} />
