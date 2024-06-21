@@ -39,7 +39,7 @@ export const handlers = [
     const newUser = { id, ...(newUserInfo as object) };
     const index = userList.findIndex((user) => user.id.toString() === id);
     (userList as DefaultBodyType[])[index] = newUser;
-    return HttpResponse.json({ status: 401 });
+    return HttpResponse.json(newUser, { status: 200 });
   }),
 
   http.delete("/users/:id", ({ params }) => {
