@@ -1,6 +1,6 @@
 import { DataProvider, fetchUtils } from "react-admin";
 
-export const dataProvider: DataProvider = {
+const dataProvider: DataProvider = {
   getList: async (resource) => {
     const response = await fetchUtils.fetchJson(`${resource}`);
     return {
@@ -33,3 +33,5 @@ export const dataProvider: DataProvider = {
     return { data: response.json };
   },
 };
+
+export default dataProvider;

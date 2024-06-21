@@ -6,13 +6,12 @@ import {
   memoryStore,
 } from "react-admin";
 import { Route } from "react-router-dom";
-import { dataProvider } from "@/providers/dataProvider";
+import dataProvider from "@/providers/dataProvider";
 import authProvider from "@/providers/authProvider";
 import { DashBoard } from "./Dashboard";
 import { UserList } from "./UserList";
 import { UserCreate } from "./UserCreate";
 import { UserEdit } from "./UserEdit";
-
 import { UserShow } from "./UserShow";
 
 const CustomApp = () => {
