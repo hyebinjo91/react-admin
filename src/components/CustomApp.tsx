@@ -8,8 +8,8 @@ import {
   memoryStore,
 } from "react-admin";
 import { Route } from "react-router-dom";
-import { dataProvider } from "@/data/dataProvider";
-import authProvider from "@/data/authProvider";
+import { dataProvider } from "@/providers/dataProvider";
+import authProvider from "@/providers/authProvider";
 import { DashBoard } from "./Dashboard";
 import { UserList } from "./UserList";
 import { UserCreate } from "./UserCreate";
