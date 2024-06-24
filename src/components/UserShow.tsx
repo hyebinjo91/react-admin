@@ -6,10 +6,8 @@ import {
   TextField,
   usePermissions,
   useDataProvider,
-  ArrayField,
-  SingleFieldList,
-  ChipField,
-  FileField,
+  NumberField,
+  ImageField,
 } from "react-admin";
 import { useParams } from "react-router-dom";
 
@@ -24,13 +22,12 @@ export const UserShow = () => {
     <Show>
       <SimpleShowLayout>
         <TextField source="name" />
-        <ChipField source="username" size="small" />
-        <ArrayField source="tags">
-          <SingleFieldList linkType={false}>
-            <ChipField source="name" size="small" />
-          </SingleFieldList>
-        </ArrayField>
-        <FileField source="files[0].src" label="file" />
+        <TextField source="username" />
+        <TextField source="address.street" />
+        <NumberField source="phone" />
+        <TextField source="website" />
+        <TextField source="company.name" />
+        <ImageField source="files[0].src" label="image" />
       </SimpleShowLayout>
     </Show>
   );
