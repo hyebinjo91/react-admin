@@ -4,9 +4,11 @@ import {
   ListGuesser,
   EditGuesser,
   memoryStore,
+  withLifecycleCallbacks,
+  DataProvider,
 } from "react-admin";
 import { Route } from "react-router-dom";
-import dataProvider from "@/providers/dataProvider";
+import { dataProvider as baseDataProvider } from "@/providers/dataProvider";
 import authProvider from "@/providers/authProvider";
 import { DashBoard } from "./Dashboard";
 import { UserList } from "./UserList";
@@ -15,6 +17,15 @@ import { UserEdit } from "./UserEdit";
 import { UserShow } from "./UserShow";
 
 const CustomApp = () => {
+  const dataProvider = withLifecycleCallbacks(baseDataProvider, [
+    {
+      resource: "users",
+      beforeCreate: async (params: any, dataProvider: DataProvider) => {
+        // some logic before creating a user
+        return params;
+      },
+    },
+  ]);
   return (
     <Admin
       dashboard={DashBoard}

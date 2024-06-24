@@ -1,11 +1,12 @@
 import { DataProvider, fetchUtils } from "react-admin";
 
-const dataProvider: DataProvider = {
+export const dataProvider: DataProvider = {
   getList: async (resource) => {
     const response = await fetchUtils.fetchJson(`${resource}`);
     return {
       data: response.json,
-      total: 30,
+      total: response.json.length,
+      // pageInfo: { page: 1, perPage: 5 },
     };
   },
   getOne: async (resource, params) => {
@@ -33,5 +34,3 @@ const dataProvider: DataProvider = {
     return { data: response.json };
   },
 };
-
-export default dataProvider;
