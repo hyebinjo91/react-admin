@@ -6,6 +6,7 @@ import {
   memoryStore,
   withLifecycleCallbacks,
   DataProvider,
+  CustomRoutes,
 } from "react-admin";
 import { Route } from "react-router-dom";
 import { dataProvider as baseDataProvider } from "@/providers/dataProvider";
@@ -15,6 +16,8 @@ import { UserList } from "./UserList";
 import { UserCreate } from "./UserCreate";
 import { UserEdit } from "./UserEdit";
 import { UserShow } from "./UserShow";
+import { MyLayout } from "./Layout/MyLayout";
+import FormPage from "./FormPage";
 
 const CustomApp = () => {
   const dataProvider = withLifecycleCallbacks(baseDataProvider, [
@@ -28,6 +31,7 @@ const CustomApp = () => {
   ]);
   return (
     <Admin
+      layout={MyLayout}
       dashboard={DashBoard}
       authProvider={authProvider}
       dataProvider={dataProvider}
@@ -49,6 +53,9 @@ const CustomApp = () => {
         edit={EditGuesser}
         recordRepresentation="title"
       />
+      <CustomRoutes>
+        <Route path="/form" element={<FormPage />} />
+      </CustomRoutes>
     </Admin>
   );
 };
